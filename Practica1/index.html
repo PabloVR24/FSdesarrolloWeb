@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="title">Ingreso de Curriculum</h1>
+    <div class="container">
+      <form action="">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" />
+        <br />
+
+        <label for="apellido">Apellido</label>
+        <input type="text" id="apellido" />
+        <br />
+
+        <label for="pass">Contraseña</label>
+        <input type="password" id="pass" />
+        <br />
+
+        <label for="rfc">RFC</label>
+        <input type="text" id="rfc" />
+        <br />
+
+        <div class="division">
+          <h3>Genero</h3>
+          <label for="hombre">Hombre</label>
+          <input type="radio" name="genero" id="hombre" />
+          <label for="mujer">Mujer</label>
+          <input type="radio" name="genero" id="mujer" />
+        </div>
+        <br />
+
+        <label for="cv">
+          <img
+            src="src/images/icons8-upload-52.png"
+            alt=""
+            width="25px"
+            height="25px"
+          />
+        </label>
+        <input type="file" name="curriculum" id="cv" />
+        <br />
+
+        <label for="area">Area de interes</label>
+        <select name="area" id="area">
+          <option value="ing">Ingenieria</option>
+          <option value="lic">Licenciatura</option>
+          <option value="bachillerato">Bachillerato</option>
+        </select>
+        <br />
+
+        <label for="sub">Suscribirme</label>
+        <input type="checkbox" name="sub" id="sub" />
+
+        <div class="btn1">
+          <a href="http://facebook.com">Registrar</a>
+        </div>
+
+        <div class="btn2">
+          <a href="mailto:">Limpiar</a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

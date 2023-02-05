@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: Roboto Condensed;
+    text-align: center;
+    padding-bottom: 2%;
+    font-size: 35px;
+}
+
+body {
+    background-color: blanchedalmond;
+}
+
+#form1 {
+    background-color: violet;
+    padding: 3%;
+    font-size: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: antiquewhite;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+}
+
+.container {
+    padding-top: 3%;
+    padding-bottom: 3%;
+    height: auto;
+    width: 80%;
+    transform: translateX(10%);
+    background-color: blueviolet;
+}
+
+input {
+    margin-right: 30px;
+    margin-bottom: 40px;
+    width: 20%;
+    height: 30px;
+}
+
+#cbNivel {
+    width: 20%;
+    height: 30px;
+    margin-bottom: 40px;
+}
+
+#cbAsunto {
+    width: 50%;
+    height: 30px;
+    margin-bottom: 40px;
+}
+
+button {
+    width: 150px;
+    height: 60px;
+}

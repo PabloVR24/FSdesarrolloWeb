@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Practica 1 - Desarrollo Web</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Ticket Turno:</h1>
+        <form action="" id="form1">
+            <tr>
+                <td>
+                    <label for="lblNombre" class="labels">Nombre completo de quien realizara el tramite:
+            </label>
+                    <input type="text" name="lblNombre" id="lblNombre" required />
+                </td>
+                <td>
+                    <label for="lblCURP" class="labels">CURP:</label>
+                    <input type="text" name="lblCURP" id="lblCURP" required/>
+                </td>
+            </tr>
+            <br />
+            <tr>
+                <td>
+                    <label for="lblNombreCl" class="labels">Nombre: </label>
+                    <input type="text" name="lblNombreCl" id="lblNombreCl" required/>
+                </td>
+                <td>
+                    <label for="lblApMaterno" class="labels">Ap. Materno: </label>
+                    <input type="text" name="lblApMaterno" id="lblApMaterno" required/>
+                </td>
+                <td>
+                    <label for="lblApaPterno" class="labels">Ap. Paterno: </label>
+                    <input type="text" name="lblApPMaterno" id="lblApPaterno" required/>
+                </td>
+            </tr>
+
+            <br />
+            <tr>
+                <td>
+                    <label for="lblTelefono" class="labels">Telefono: </label>
+                    <input type="text" name="lblTelefono" id="lblTelefono" required/>
+                </td>
+                <td>
+                    <label for="lblCelular" class="labels">Celular: </label>
+                    <input type="text" name="lblCelular" id="lblCelular" required/>
+                </td>
+                <td>
+                    <label for="lblCorreo" class="labels">Correo: </label>
+                    <input type="email" name="lblCorreoo" id="lblCorreo" required/>
+                </td>
+            </tr>
+            <br />
+            <label for="cbNivel">Nivel al que desea ingresar o que ya cursa el alumno:
+        </label>
+            <select name="cbNivel" id="cbNivel">
+          <option value="Combo1">Combo1</option>
+          <option value="Combo2">Combo2</option>
+          <option value="Combo3">Combo3</option>
+        </select>
+            <br />
+            <label for="cbAsunto">Asunto a tratar: </label>
+            <select name="cbAsunto" id="cbAsunto">
+          <option value="Combo1">Combo1</option>
+          <option value="Combo2">Combo2</option>
+          <option value="Combo3">Combo3</option>
+        </select>
+            <br />
+
+            <button type="submit" form="form1" value="Submit">Generar Turno</button>
+        </form>
+    </div>
+</body>
+
+</html>
