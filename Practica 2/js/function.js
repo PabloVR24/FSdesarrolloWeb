@@ -1,118 +1,127 @@
 function validate() {
-    let messages = [];
-    var patFname = document.getElementById("fname").value.trim();
+    let formulario = document.getElementById("forms")
+    let patFname = document.getElementById("fname").value.trim();
 
     if (patFname.length < 3) {
-        messages.push("Verificar dato: Nombre de quien realiza");
-
-        Swal.fire({
-            icon: "warning",
-            text: "Verificar Campo: Nombre de quien realiza",
-            footer: "Ingresa un nombre valido",
-        });
-        return false;
+        message(
+            "error",
+            "Verificar Campo: Nombre de quien realiza",
+            "Ingresa un nombre valido"
+        );
+        return false
     }
 
-    var patCURP = document.getElementById("lCurp").value.trim();
-    var expCRUP = /^[a-zA-Z]{4}(\d{6})([a-zA-Z]{6})(([0-9]){2})?$/;
+    let patCURP = document.getElementById("lCurp").value.trim();
+    let expCRUP = /^[a-zA-Z]{4}(\d{6})([a-zA-Z]{6})(([a-zA-Z0-9]){2})?$/;
 
     if (!expCRUP.test(patCURP)) {
-        Swal.fire({
-            icon: "error",
-            text: "Verificar Campo: CURP",
-            footer: "Campo no cumple con patron",
-        });
-        return false;
+        message("error", "Verificar Campo: CURP", "Campo no cumple con patron");
+    } else {
+        let year = patCURP[4] + patCURP[5];
+        let mth = patCURP[6] + patCURP[7];
+        let day = patCURP[8] + patCURP[9];
+
+        edad = getDate(day, mth, year);
+        let gradoEscolar = "";
+        if (edad >= 3 && edad < 6) {
+            gradoEscolar = "Preescolar";
+        } else if (edad >= 6 && edad < 12) {
+            gradoEscolar = "Primaria";
+        } else if (edad >= 12 && edad < 15) {
+            gradoEscolar = "Secundaria";
+        } else {
+            message("error", "No se podra agendar la cita en Linea", "Acudir personalmente");
+            formulario.reset()
+            return false;
+        }
+        console.log(gradoEscolar);
     }
 
-    var patName = document.getElementById("name").value.trim();
+    function getDate(day, mth, year) {
+        let today = new Date();
+        if (year > 30) {
+            yr = 19;
+        } else {
+            yr = 20;
+        }
+        let cumple = new Date(yr + "" + year + "-" + mth + "-" + day);
+        let age = today.getFullYear() - cumple.getFullYear();
+
+        if (
+            today.getMonth() < cumple.getMonth() ||
+            (today.getMonth() == cumple.getMonth() &&
+                today.getDate() < cumple.getDate())
+        ) {
+            age--;
+        }
+        return age;
+    }
+
+    let patName = document.getElementById("name").value.trim();
 
     if (patName.length < 3) {
-        Swal.fire({
-            icon: "warning",
-            text: "Verificar Campo: Nombre",
-            footer: "Ingresa un nombre valido",
-        });
-        return false;
+        message("warning", "Verificar Campo: Nombre", "Ingresa un nombre valido");
     }
 
-    var patfirstName = document.getElementById("firstName").value.trim();
+    let patfirstName = document.getElementById("firstName").value.trim();
 
     if (patfirstName.length < 3) {
-        Swal.fire({
-            icon: "warning",
-            text: "Verificar Campo: Apellido Paterno",
-            footer: "Ingresa un apellido valido",
-        });
-        return false;
+        message(
+            "warning",
+            "Verificar Campo: Apellido Paterno",
+            "Ingresa un apellido valido"
+        );
     }
 
-    var patlastName = document.getElementById("lastName").value.trim();
+    let patlastName = document.getElementById("lastName").value.trim();
 
     if (patlastName.length < 3) {
-        Swal.fire({
-            icon: "warning",
-            text: "Verificar Campo: Apellido Materno",
-            footer: "Ingresa un apellido valido",
-        });
-        return false;
+        message(
+            "warning",
+            "Verificar Campo: Apellido Materno",
+            "Ingresa un apellido valido"
+        );
     }
 
-    var patTel = document.getElementById("tel").value.trim();
-    var expTel = /^(\d{10})$/;
+    let patTel = document.getElementById("tel").value.trim();
+    let expTel = /^(\d{10})$/;
 
     if (!expTel.test(patTel)) {
-        Swal.fire({
-            icon: "error",
-            text: "Verificar Campo: Telefono",
-            footer: "Campo no cumple con patron: XXXXXXXXXX",
-        });
-        return false;
+        message(
+            "error",
+            "Verificar Campo: Telefono",
+            "Campo no cumple con patron: XXXXXXXXXX"
+        );
     }
 
-    var patCel = document.getElementById("cel").value.trim();
-    var expCel = /^(\d{10})$/;
+    let patCel = document.getElementById("cel").value.trim();
+    let expCel = /^(\d{10})$/;
 
     if (!expCel.test(patCel)) {
-        Swal.fire({
-            icon: "error",
-            text: "Verificar Campo: Celular",
-            footer: "Campo no cumple con patron: XXXXXXXXXX",
-        });
-        return false;
+        message(
+            "error",
+            "Verificar Campo: Celular",
+            "Campo no cumple con patron: XXXXXXXXXX"
+        );
     }
 
-    var patMail = document.getElementById("mail").value.trim();
-    var expMail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
-    if (!expMail.test(patMail)) {
-        Swal.fire({
-            icon: "error",
-            text: "Verificar Campo: Correo",
-            footer: "Campo no cumple con patron: algo@mail.com",
-        });
-        return false;
-    }
 
-    var patNivel = document.getElementById("mes").value.trim();
+    let patNivel = document.getElementById("mes").value.trim();
 
     if (patNivel.length == 0) {
-        Swal.fire({
-            icon: "info",
-            text: "Verificar Campo: Nivel",
-            footer: "Selecciona una opcion",
-        });
-        return false;
+        message("info", "Verificar Campo: Nivel", "Selecciona una opcion");
     }
 
-    var patAsunto = document.getElementById("mes1").value.trim();
+    let patAsunto = document.getElementById("mes1").value.trim();
 
-    if (patAsunto.length == 0) {
+    if (patAsunto.length == 0) {}
+
+    function message(icono, texto, pie) {
         Swal.fire({
-            icon: "info",
-            text: "Verificar Campo: Asunto",
-            footer: "Selecciona una opcion",
+            icon: icono,
+            text: texto,
+            footer: pie,
         });
-        return false;
     }
 }
